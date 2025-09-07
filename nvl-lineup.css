@@ -1,4 +1,5 @@
 /* ===== NVL Lineup Submission – Ken-tuned for your markup ===== */
+#body_lineup { outline: 6px solid hotpink !important; }
 /* Colors (edit to taste) */
 :root {
   --nvl-bg: #0b1220;
@@ -236,3 +237,4 @@ tr.illegal, [data-valid="false"] {
 /* ===== Small refinements ===== */
 a:hover { opacity: .9; }
 td[align="center"] { text-align: center !important; }
+
