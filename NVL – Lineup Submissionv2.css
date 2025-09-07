@@ -1,0 +1,238 @@
+/* ===== NVL Lineup Submission – Ken-tuned for your markup ===== */
+/* Colors (edit to taste) */
+:root {
+  --nvl-bg: #0b1220;
+  --nvl-card: #101826;
+  --nvl-surface: #0f172a;
+  --nvl-border: #1f2937;
+  --nvl-text: #e5e7eb;
+  --nvl-muted: #9ca3af;
+  --nvl-primary: #0e4d92;
+  --nvl-accent: #e6b400;
+  --nvl-danger: #b00020;
+  --nvl-good: #0f766e;
+}
+
+/* Page background & base text */
+#body_lineup, #lineup, #lineup .pagebody, .mobile-wrap {
+  background: var(--nvl-bg) !important;
+  color: var(--nvl-text) !important;
+}
+
+/* Header cleanup */
+.pageheader, #hsubmenu, .myfantasyleague_menu {
+  background: transparent !important;
+}
+.pagetitle h1, .pagetitle h1 span { color: #fff !important; }
+
+/* Make “Submit Lineup for Week” nav easier to use */
+.reportnavigation {
+  display: block;
+  margin: 10px 0 16px;
+  padding: 8px 10px;
+  background: var(--nvl-card);
+  border: 1px solid var(--nvl-border);
+  border-radius: 10px;
+  font-size: 14px;
+}
+.reportnavigation .currentweek {
+  background: var(--nvl-primary);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.reportnavigation a {
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.reportnavigation a:hover { border-color: var(--nvl-border); }
+
+/* The lineup table container */
+#withmenus .report {
+  width: 100%;
+  background: var(--nvl-card) !important;
+  color: var(--nvl-text) !important;
+  border: 1px solid var(--nvl-border) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 8px !important; /* carded rows */
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  border-radius: 14px;
+  overflow: hidden;
+}
+#withmenus .report caption span {
+  display: block;
+  padding: 12px 14px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(180deg, #0f1b2f, #0b131f);
+  border-bottom: 1px solid var(--nvl-border);
+}
+
+/* Sticky header row */
+#withmenus .report thead tr,
+#withmenus .report > tbody > tr:first-child {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #0d1b2a !important;
+  color: #fff;
+}
+#withmenus .report th {
+  padding: 10px 12px !important;
+  text-align: left;
+  font-weight: 800;
+  border-bottom: 1px solid var(--nvl-border);
+}
+
+/* “Carded” rows + padding */
+#withmenus .report td {
+  padding: 10px 12px !important;
+  vertical-align: middle !important;
+}
+#withmenus .report .oddtablerow,
+#withmenus .report .eventablerow {
+  background: var(--nvl-surface);
+  border: 1px solid var(--nvl-border);
+}
+
+/* Position section headers in first column (e.g., “Select 2-3 RB:”) */
+#withmenus .report th[scope], 
+#withmenus .report tr th:first-child {
+  color: var(--nvl-accent);
+}
+#withmenus .report tr.newposition th:first-child {
+  border-top: 2px solid var(--nvl-border);
+  padding-top: 14px !important;
+}
+
+/* Player links by position */
+a.position_qb, a.position_rb, a.position_wr, a.position_te, a.position_pk, a.position_def {
+  font-weight: 800;
+  text-decoration: none;
+}
+a.position_qb { color: #8ab4f8; }
+a.position_rb { color: #a7f3d0; }
+a.position_wr { color: #f9a8d4; }
+a.position_te { color: #fde68a; }
+a.position_pk { color: #c7d2fe; }
+a.position_def { color: #93c5fd; }
+
+/* Column emphasis */
+#withmenus .report td.points { font-weight: 800; }
+#withmenus .report td.rank { color: var(--nvl-muted); }
+
+/* Disable state (MFL renders disabled on locked or required players) */
+#withmenus .report input[disabled] + a {
+  opacity: .7;
+  filter: grayscale(.1);
+}
+
+/* Improve click/tap targets for checkboxes */
+#withmenus .report input[type="checkbox"] {
+  width: 20px; height: 20px; cursor: pointer;
+  accent-color: var(--nvl-primary);
+}
+
+/* NFL News link as a chip */
+#withmenus .report td:last-child a[href*="news_articles"] {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #1f2937;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* Hint + Fantasy Sharks helper blocks */
+#withmenus .report + .reportnavigation,
+#withmenus .mobile-wrap .report.nocaption {
+  background: var(--nvl-card);
+  border: 1px solid var(--nvl-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* Submit bar: make it sticky at bottom */
+.form_buttons {
+  position: sticky;
+  bottom: 0;
+  background: rgba(11,18,32,.92);
+  border-top: 1px solid var(--nvl-border);
+  padding: 12px;
+  margin-top: 10px;
+  z-index: 20;
+  text-align: right;
+}
+.form_buttons input[type="submit"] {
+  padding: 12px 16px;
+  font-weight: 800;
+  border-radius: 10px;
+  border: 1px solid #294056;
+  background: linear-gradient(180deg, var(--nvl-primary), #0a3a6e);
+  color: #fff;
+  cursor: pointer;
+}
+.form_buttons input[type="submit"]:hover { transform: translateY(-1px); }
+
+/* Franchise logo cleanup */
+.franchiselogo {
+  border-radius: 12px;
+  border: 1px solid var(--nvl-border);
+  background: #0a1220;
+  padding: 4px;
+}
+
+/* ===== Mobile card layout ===== */
+@media (max-width: 860px) {
+  /* Hide header row; turn each player row into a card */
+  #withmenus .report > tbody > tr:first-child { display: none; }
+  #withmenus .report, #withmenus .report tbody, 
+  #withmenus .report tr, #withmenus .report td, #withmenus .report th {
+    display: block;
+    width: 100% !important;
+  }
+  #withmenus .report tr.oddtablerow,
+  #withmenus .report tr.eventablerow {
+    margin: 10px 0;
+    border-radius: 12px;
+    padding: 8px 10px;
+  }
+
+  /* First TD (player) larger; others get labels via nth-child */
+  #withmenus .report tr td:nth-of-type(1) { 
+    font-size: 17px; font-weight: 800; color: #fff;
+  }
+
+  #withmenus .report tr td:nth-of-type(2)::before { content: "Opponent • "; color: var(--nvl-muted); font-size: 12px; display: inline; }
+  #withmenus .report tr td:nth-of-type(3)::before { content: "Inj: "; color: var(--nvl-muted); font-size: 12px; }
+  #withmenus .report tr td:nth-of-type(4)::before { content: "Bye: "; color: var(--nvl-muted); font-size: 12px; }
+  #withmenus .report tr td.points:nth-of-type(5)::before { content: "Proj: "; color: var(--nvl-muted); font-size: 12px; }
+  #withmenus .report tr td.rank:nth-of-type(6)::before { content: "Pos Rank: "; color: var(--nvl-muted); font-size: 12px; }
+  #withmenus .report tr td.points:nth-of-type(7)::before { content: "% Start: "; color: var(--nvl-muted); font-size: 12px; }
+  #withmenus .report tr td:nth-of-type(8)::before { content: "News: "; color: var(--nvl-muted); font-size: 12px; }
+
+  /* Space columns */
+  #withmenus .report tr td { 
+    padding: 8px 6px !important; 
+    border: 0 !important; 
+  }
+
+  /* Make checkboxes and submit easier to tap */
+  #withmenus .report input[type="checkbox"] { width: 24px; height: 24px; }
+  .form_buttons { text-align: center; }
+  .form_buttons input[type="submit"] { width: 100%; }
+}
+
+/* ===== Visual cues for incomplete slots / errors (future-proof) ===== */
+tr.illegal, [data-valid="false"] {
+  border: 1px solid var(--nvl-danger) !important;
+  box-shadow: 0 0 0 2px rgba(176,0,32,0.25);
+}
+
+/* ===== Small refinements ===== */
+a:hover { opacity: .9; }
+td[align="center"] { text-align: center !important; }
